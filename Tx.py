@@ -2,7 +2,7 @@
 # coding=utf-8
 import socket
 
-host="192.168.100.xx"
+host="192.168.100.46"
 port=8080
 
 serversock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
