@@ -13,12 +13,13 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return '<h1>Home</h1>'
+    return '<h1>Initialization</h1>'       
 
-@app.route('/input',methods=['GET','POST'])
+@app.route('/input',methods=['POST','GET'])
 def input_number():
-    msg=request.form['number']
-    print(msg)
+    if "number" in request.form:
+        msg=request.form['number']
+        print(msg)
     return '''<form action="/input" method="post">
               <p>Please input the control number</p>
               <p><input name="number"></p>
@@ -26,4 +27,5 @@ def input_number():
               </form>'''
 
 if __name__=='__main__':
-    app.run()
+    app.run(host='0.0.0.0',port=8080)
+#    app.run()
