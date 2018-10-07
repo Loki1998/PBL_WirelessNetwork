@@ -11,7 +11,7 @@ from flask import request
 
 import socket
 
-host="10.206.38.117"
+host="192.168.100.46"
 port=8080
 
 clientsock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
