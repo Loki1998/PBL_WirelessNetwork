@@ -12,19 +12,19 @@ host="192.168.100.41"
 port=8080
 
 #This node ip
-host_relay="192.168.100.46"
+host_relay="10.206.38.117"
 port_relay=8080
 
 serversock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 serversock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 serversock.bind((host_relay,port_relay))
-server.listen(10)
+serversock.listen(10)
 
 print 'Waiting for connection to client 192.168.100.00'
 connection,address=serversock.accept()
 
 clientsock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-clientsock=connect((host,port))
+clientsock.connect((host,port))
 
 try:
     while True:
@@ -37,4 +37,4 @@ try:
 
         clientsock.sendall(response)
 finally:
-print 'END'
+    print 'END'
